@@ -12,6 +12,7 @@ environment:
 transformers:
 - polymer:
     entry_points:
+      - web/index_demos.html
     inline_stylesheets:
       lib/src/paper-shadow/paper-shadow.css: false
 - $dart2js:
