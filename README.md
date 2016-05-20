@@ -1,7 +1,7 @@
 What is tweaked when compare to the original repo
 ========================================
 
-For some reason, the original source is not working correctly on mobile device,
+For some reason, the original source is not working correctly on Cordova,
 so I am trying to make some adjustment so at least let contents can be viewed.
 
 
