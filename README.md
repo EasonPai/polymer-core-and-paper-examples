@@ -2,7 +2,7 @@ What is tweaked when compare to the original repo
 ========================================
 
 For some reason, the original source is not working correctly on Cordova,
-so I am trying to make some adjustment so at least let contents can be viewed.
+so I am trying to make some adjustment to let at least contents can be viewed.
 
 
 Polymer core and paper elements examples
