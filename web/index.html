@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+  <head>
+    <title>Polymer Core & Paper Examples</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="shortcut icon" href="http://www.polymer-project.org/images/logos/p-logo-16.png">
+
+    <link rel="import" href="packages/core_elements/core_toolbar.html">
+    <link rel="import" href="packages/core_elements/core_drawer_panel.html">
+    <link rel="import" href="packages/core_elements/core_header_panel.html">
+    <link rel="import" href="packages/core_elements/core_item.html">
+    <link rel="import" href="packages/core_elements/core_menu.html">
+    <link rel="import" href="packages/core_elements/core_submenu.html">
+    <link rel="import" href="packages/core_elements/core_icon_button.html">
+    <link rel="import" href="packages/core_elements/core_icons.html">
+    <link rel="import" href="packages/paper_elements/sampler_scaffold.html">
+    <link rel="import" href="packages/paper_elements/roboto.html">
+    <link rel="import" href="packages/core_elements/core_item.html">
+    <link rel="import" href="packages/core_elements/core_submenu.html">
+    <link rel="import" href="packages/paper_elements/paper_menu_button.html">
+    <link rel="import" href="packages/paper_elements/paper_icon_button.html">
+    <link rel="import" href="packages/paper_elements/paper_fab.html">
+    <link rel="import" href="packages/paper_elements/paper_dropdown.html">
+    <link rel="import" href="packages/paper_elements/paper_item.html">
+
+    <style>
+
+      body {
+        font-family: RobotoDraft, sans-serif;
+        color: #333;
+        margin: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-touch-callout: none;
+      }
+
+      .demo-menu-button {
+        position: fixed;
+        top: 24px;
+        right: 100px;
+        box-sizing: border-box;
+        width: 56px;
+        height: 56px;
+        background: #d23f31;
+        border-radius: 50%;
+        padding: 16px;
+      }
+
+      .demo-launch-button {
+        position: fixed;
+        top: 24px;
+        right: 20px;
+        box-sizing: border-box;
+        width: 56px;
+        height: 56px;
+        background: #d23f31;
+        border-radius: 50%;
+        padding: 16px;
+      }
+
+      .demo-icon {
+        color: #fff;
+        margin-top: -10px;
+        margin-left: -8px;
+      }
+
+      .direction-left {
+        left: -160px;
+        max-width: 200px;
+      }
+
+    </style>
+  </head>
+ 
+  <body unresolved>
+
+    <sampler-scaffold id="scaffold" label="Polymer Core & Paper Examples" fit>
+
+      <paper-icon-button class="menuButton" icon="menu" hidden ></paper-icon-button>
+
+      <paper-fab class="sourceButton bottom" icon="launch" hidden></paper-fab>
+
+      <core-item label="Checkbox" tag="paper-checkbox" url="paper_checkbox.html"></core-item>
+
+      <core-item label="Radio Button" tag="paper-radio-button" url="paper_radio_group.html"></core-item>
+
+      <core-item label="Toggle Button" tag="paper-toggle-button" url="paper_toggle_button.html"></core-item>
+
+      <core-item label="Input" tag="paper-input" url="paper_input.html"></core-item>
+
+       <core-item label="Ripple Effect" tag="paper-ripple" url="paper_ripple.html"></core-item>
+
+      <core-item label="Toolbar" tag="core-toolbar" url="core_toolbar.html"></core-item>
+
+      <core-item label="Spinner" tag="paper-spinner" url="paper_spinner.html"></core-item>
+
+      <core-item label="Progress Bar" tag="paper-progress" url="paper_progress.html"></core-item>
+
+      <core-item label="Slider" tag="paper-slider" url="paper_slider.html"></core-item>
+
+      <core-item label="Tabs" tag="paper-tabs" url="paper_tabs.html"></core-item>
+
+      <core-item label="Button" tag="paper-button" url="paper_button.html"></core-item>
+
+      <core-item label="Icon Button" tag="paper-icon-button" url="paper_icon_button.html"></core-item>
+
+      <core-item label="Floating Action Button" tag="paper-fab" url="paper_fab.html"></core-item>
+
+      <core-item label="Dropdown" tag="paper-dropdown" url="paper_dropdown.html"></core-item>
+
+      <core-item label="Dropdown Menu" tag="paper-dropdown-menu" url="paper_dropdown_menu.html"></core-item>
+
+      <core-item label="Menu Button" tag="paper-menu-button" url="paper_menu_button.html"></core-item>
+
+      <core-item label="Item" tag="paper-item" url="paper_item.html"></core-item>
+
+      <core-item label="Dialog" tag="paper-dialog" url="paper_dialog.html"></core-item>
+
+      <core-item label="Shadow" tag="paper-shadow" url="paper_shadow.html"></core-item>
+
+      <core-item label="Toast" tag="paper-toast" url="paper_toast.html"></core-item>
+
+    </sampler-scaffold>
+
+    <!--====================================-->
+    <!--Tweak Starts Here-->
+    <!--====================================-->
+
+    <div class="demo-menu-button">
+      <paper-menu-button id="menu-menu"  label="Menu" >
+        <paper-icon-button class="demo-icon" icon="menu"></paper-icon-button>
+        <paper-dropdown class="dropdown direction-left">
+          <core-menu id="menu-core-menu" class="menu">
+          </core-menu>
+        </paper-dropdown>
+      </paper-menu-button>
+    </div>
+
+    <div class="demo-launch-button">
+      <paper-menu-button id="launch-menu"  label="Launch" >
+        <paper-icon-button class="demo-icon" icon="view-carousel"></paper-icon-button>
+        <paper-dropdown class="dropdown direction-left">
+          <core-menu id="launch-core-menu" class="menu">
+          </core-menu>
+        </paper-dropdown>
+      </paper-menu-button>
+    </div>
+
+    <script>
+
+      // ====================================
+      // menu area
+      // ====================================
+
+      // init data
+
+      var items = [
+              'Checkbox',
+              'Radio Button',
+              'Toggle Button',
+              'Input',
+              'Ripple Effect',
+              'Toolbar',
+              'Spinner',
+              'Progress Bar',
+              'Slider',
+              'Tabs',
+              'Button',
+              'Icon Button',
+              'Floating Action Button',
+              'Dropdown',
+              'Dropdown Menu',
+              'Menu Button',
+              'Item',
+              'Dialog',
+              'Shadow',
+              'Toast'
+      ];
+
+      // menu item generation
+
+      var menuHtmlStr = "";
+      for(var j=0;j<items.length;j++){
+        menuHtmlStr += "<paper-item id='"+items[j]+"'>"+items[j]+"</paper-item>";
+      }
+      document.getElementById("menu-core-menu").innerHTML = menuHtmlStr;
+
+      // menu interaction
+
+      for(var i=0;i<items.length;i++){
+        console.log("item = " + items[i]);
+        document.getElementById(items[i]).addEventListener('click',
+                function(e) {
+                  var itemName = "core-item[label='" + e.currentTarget.id + "']";
+                  var element = document.querySelector(itemName);
+                  console.log("element = "+ element);
+                  document.getElementById("scaffold").menuSelect(e,
+                          {isSelected: true,
+                            item: element });
+                });
+      }
+
+
+      // ====================================
+      // launch area
+      // ====================================
+
+      var types = [
+        'Core',
+        'Paper'
+      ];
+
+
+      // launch item generation
+
+      var launchHtmlStr = "";
+      for(var k=0;k<types.length;k++){
+        launchHtmlStr += "<paper-item id='"+ types[k]+"'>"+ types[k]+"\</paper-item>";
+      }
+      document.getElementById("launch-core-menu").innerHTML = launchHtmlStr;
+
+
+      // launch interaction
+
+      for(var m=0; m< types.length; m++){
+        console.log("types = " + types[m]);
+        document.getElementById(types[m]).addEventListener('click',
+                function(e) {
+
+                  console.log("id = "+ e.currentTarget.id);
+
+                  if(e.currentTarget.id == "Paper"){
+                    // do nothing
+                  }
+
+                  if(e.currentTarget.id == "Core"){
+                    window.location = "index_core.html";
+                  }
+                });
+      }
+
+    </script>
+    <script src="cordova.js"></script>
+    <script type="application/dart">export 'package:polymer/init.dart';</script>
+  </body>
+</html>
