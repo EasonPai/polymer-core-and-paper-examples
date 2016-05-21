@@ -6,7 +6,7 @@ license that can be found in the LICENSE file.
 -->
 <html>
   <head>
-    <title>Polymer - Core & Paper</title>
+    <title>Polymer Core & Paper Examples</title>
 
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -48,8 +48,8 @@ license that can be found in the LICENSE file.
 
       .demo-menu-button {
         position: fixed;
-        top: 32px;
-        right: 140px;
+        top: 24px;
+        right: 100px;
         box-sizing: border-box;
         width: 56px;
         height: 56px;
@@ -60,8 +60,8 @@ license that can be found in the LICENSE file.
 
       .demo-launch-button {
         position: fixed;
-        top: 32px;
-        right: 40px;
+        top: 24px;
+        right: 20px;
         box-sizing: border-box;
         width: 56px;
         height: 56px;
@@ -76,12 +76,17 @@ license that can be found in the LICENSE file.
         margin-left: -8px;
       }
 
+      .direction-left {
+        left: -160px;
+        max-width: 200px;
+      }
+
     </style>
   </head>
  
   <body unresolved>
 
-    <sampler-scaffold id="scaffold" label="Polymer - Core & Paper" fit>
+    <sampler-scaffold id="scaffold" label="Polymer Core & Paper Examples" fit>
 
       <paper-icon-button class="menuButton" icon="menu" hidden ></paper-icon-button>
 
@@ -129,33 +134,38 @@ license that can be found in the LICENSE file.
 
     </sampler-scaffold>
 
-
-    <div class="demo-launch-button">
-      <paper-menu-button id="launch-menu"  label="Constrained height" >
-        <paper-icon-button class="demo-icon" icon="view-carousel"></paper-icon-button>
-        <paper-dropdown class="dropdown constrained-height">
-          <core-menu id="launch-core-menu" class="menu">
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-    </div>
+    <!--====================================-->
+    <!--Tweak Starts Here-->
+    <!--====================================-->
 
     <div class="demo-menu-button">
-      <paper-menu-button id="menu-menu"  label="Constrained height" >
+      <paper-menu-button id="menu-menu"  label="Menu" >
         <paper-icon-button class="demo-icon" icon="menu"></paper-icon-button>
-        <paper-dropdown class="dropdown constrained-height">
+        <paper-dropdown class="dropdown direction-left">
           <core-menu id="menu-core-menu" class="menu">
           </core-menu>
         </paper-dropdown>
       </paper-menu-button>
     </div>
 
-
+    <div class="demo-launch-button">
+      <paper-menu-button id="launch-menu"  label="Launch" >
+        <paper-icon-button class="demo-icon" icon="view-carousel"></paper-icon-button>
+        <paper-dropdown class="dropdown direction-left">
+          <core-menu id="launch-core-menu" class="menu">
+          </core-menu>
+        </paper-dropdown>
+      </paper-menu-button>
+    </div>
 
     <script>
 
-      // initialization
-      
+      // ====================================
+      // menu area
+      // ====================================
+
+      // init data
+
       var items = [
               'Checkbox',
               'Radio Button',
@@ -179,10 +189,9 @@ license that can be found in the LICENSE file.
               'Toast'
       ];
 
-      var menuHtmlStr = "";
-
       // menu item generation
 
+      var menuHtmlStr = "";
       for(var j=0;j<items.length;j++){
         menuHtmlStr += "<paper-item id='"+items[j]+"'>"+items[j]+"</paper-item>";
       }
@@ -203,6 +212,44 @@ license that can be found in the LICENSE file.
                 });
       }
 
+
+      // ====================================
+      // launch area
+      // ====================================
+
+      var types = [
+        'Core',
+        'Paper'
+      ];
+
+
+      // launch item generation
+
+      var launchHtmlStr = "";
+      for(var k=0;k<types.length;k++){
+        launchHtmlStr += "<paper-item id='"+ types[k]+"'>"+ types[k]+"\</paper-item>";
+      }
+      document.getElementById("launch-core-menu").innerHTML = launchHtmlStr;
+
+
+      // launch interaction
+
+      for(var m=0; m< types.length; m++){
+        console.log("types = " + types[m]);
+        document.getElementById(types[m]).addEventListener('click',
+                function(e) {
+
+                  console.log("id = "+ e.currentTarget.id);
+
+                  if(e.currentTarget.id == "Paper"){
+                    // do nothing
+                  }
+
+                  if(e.currentTarget.id == "Core"){
+                    window.location = "index_core.html";
+                  }
+                });
+      }
 
     </script>
     <script src="cordova.js"></script>
